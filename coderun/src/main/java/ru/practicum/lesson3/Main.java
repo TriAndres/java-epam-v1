@@ -18,6 +18,8 @@ public class Main {
                     "74\n" +
                     "D D R R R R D D");
 
+            System.out.println("Ввод:\nВведите два числа через пробел:");
+
             String[] line = reader.readLine().split(" +");
             int n = Integer.parseInt(line[0]);
             int m = Integer.parseInt(line[1]);
@@ -25,6 +27,7 @@ public class Main {
             int[][] arr = new int[n][m];
 
             for (int i = 0; i < n; i++) {
+                System.out.println("Введите числа через пробел:");
                 String[] value = reader.readLine().split(" +");
                 for (int j = 0; j < m; j++) {
                     arr[i][j] = Integer.parseInt(value[j]);
