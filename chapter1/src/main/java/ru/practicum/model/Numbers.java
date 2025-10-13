@@ -11,8 +11,7 @@ public class Numbers {
 
     public Numbers(
             Long id,
-            Integer num
-    ) {
+            Integer num) {
         this.id = id;
         this.num = num;
     }
