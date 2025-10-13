@@ -10,20 +10,25 @@ import java.util.Map;
 public class SecurityRepositoryImpl implements SecurityRepository {
     private final Map<Long, Security> passwordMap = new HashMap<>();
 
-    public List<Security> getSecurityAll() {
-        if (!passwordMap.isEmpty()) {
-            return new ArrayList<>(passwordMap.values());
+
+    public List<String> getSecurityKeyAll() {
+        List<String> list = new ArrayList<>();
+        for (Security value : passwordMap.values()) {
+            list.add(value.getLogin());
         }
-        return null;
+        return list;
+    }
+
+    public List<Security> getSecurityValueAll() {
+        return new ArrayList<>(passwordMap.values());
     }
 
     public Security create(Security security) {
-        if (security != null) {
-            if (!passwordMap.containsKey(security.getId())) {
-                passwordMap.put(security.getId(), security);
-                return security;
-            }
-        }
-        return null;
+        passwordMap.put(security.getId(), security);
+        return security;
+    }
+
+    public Security findById(long id) {
+        return passwordMap.get(id);
     }
 }

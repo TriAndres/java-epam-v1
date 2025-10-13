@@ -1,8 +1,6 @@
 package ru.practicum.menu;
 
-import ru.practicum.exseptions.Exseptions;
-
-import static ru.practicum.console.Console.getString;
+import static ru.practicum.controller.Controller.scanner;
 
 public class NumbersMenu extends Menu {
     @Override
@@ -15,7 +13,7 @@ public class NumbersMenu extends Menu {
                 4 - удалить всё.
                 0 - выход из меню.
                 """);
-        return getString();
+        return scanner().getString();
     }
 
     @Override

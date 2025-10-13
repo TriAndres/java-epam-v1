@@ -1,9 +1,11 @@
 package ru.practicum.menu;
 
-
-import static ru.practicum.console.Console.getString;
+import static ru.practicum.controller.Controller.scanner;
 
 public class SecurityMenu extends Menu {
+    public SecurityMenu() {
+    }
+
     @Override
     public String menu() {
         System.out.println("""
@@ -12,7 +14,7 @@ public class SecurityMenu extends Menu {
                 2 - Войти.
                 0 - Выйти из программы.
                 """);
-        return getString();
+        return scanner().getString();
     }
 
     @Override

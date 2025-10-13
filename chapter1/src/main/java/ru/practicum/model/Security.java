@@ -9,6 +9,7 @@ public class Security {
     private String login;
     private String password;
     private LocalDateTime RegistrationTime;
+    private boolean start;
 
 
     public Security() {
@@ -20,13 +21,15 @@ public class Security {
             String lastName,
             String login,
             String password,
-            LocalDateTime registrationTime) {
+            LocalDateTime registrationTime,
+            boolean start) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
         this.password = password;
-        RegistrationTime = registrationTime;
+        this.RegistrationTime = registrationTime;
+        this.start = start;
     }
 
     public Long getId() {
@@ -77,4 +80,24 @@ public class Security {
         RegistrationTime = registrationTime;
     }
 
+    public boolean isStart() {
+        return start;
+    }
+
+    public void setStart(boolean start) {
+        this.start = start;
+    }
+
+    @Override
+    public String toString() {
+        return "Security{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", RegistrationTime=" + RegistrationTime +
+                ", start=" + start +
+                '}';
+    }
 }
