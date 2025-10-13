@@ -47,7 +47,6 @@ public class Numbers {
 
     @Override
     public String toString() {
-        return id +
-                "/" + num;
+        return id + "/" + num;
     }
 }
