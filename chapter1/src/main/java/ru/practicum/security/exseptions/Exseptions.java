@@ -1,4 +1,4 @@
-package ru.practicum.exseptions;
+package ru.practicum.security.exseptions;
 
 public class Exseptions extends RuntimeException {
     public Exseptions(String message) {

@@ -1,4 +1,4 @@
-package ru.practicum.menu;
+package ru.practicum.security.menu;
 
 public abstract class Menu {
 

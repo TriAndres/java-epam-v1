@@ -1,4 +1,4 @@
-package ru.practicum.service;
+package ru.practicum.numbers.service;
 
 public interface NumbersService {
     void findAll();

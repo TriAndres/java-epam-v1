@@ -3,17 +3,32 @@ package ru.practicum.console;
 import java.util.Scanner;
 
 public class Console {
-    private final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
-    public String getString() {
+    public static String getString() {
         return scanner.next();
     }
 
-    public Integer getInteger() {
+    public static Integer getInteger() {
         int num;
         while (true) {
             if (scanner.hasNextInt()) {
                 num = scanner.nextInt();
+                if (num > 0) {
+                    break;
+                }
+            } else {
+                scanner.hasNextLine();
+            }
+        }
+        return num;
+    }
+
+    public static Long getLong() {
+        long num;
+        while (true) {
+            if (scanner.hasNextLong()) {
+                num = scanner.nextLong();
                 if (num > 0) {
                     break;
                 }

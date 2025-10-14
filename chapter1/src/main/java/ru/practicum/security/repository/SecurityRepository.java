@@ -1,6 +1,6 @@
-package ru.practicum.repository;
+package ru.practicum.security.repository;
 
-import ru.practicum.model.Security;
+import ru.practicum.security.model.Security;
 
 
 import java.util.List;

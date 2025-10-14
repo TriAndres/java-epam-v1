@@ -1,15 +1,15 @@
-package ru.practicum.model;
+package ru.practicum.numbers.model;
 
 import java.util.Objects;
 
-public class Numb {
+public class Numbers {
     private Long id;
     private Integer num;
 
-    public Numb() {
+    public Numbers() {
     }
 
-    public Numb(
+    public Numbers(
             Long id,
             Integer num) {
         this.id = id;
@@ -35,7 +35,7 @@ public class Numb {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Numb numbers = (Numb) o;
+        Numbers numbers = (Numbers) o;
         return Objects.equals(id, numbers.id) && Objects.equals(num, numbers.num);
     }
 
