@@ -1,17 +1,15 @@
 package ru.practicum.repository;
 
-import ru.practicum.model.Numbers;
+import ru.practicum.model.Numb;
 
 import java.util.List;
 
 public interface NumberRepository {
-    List<Numbers> findAll();
+    List<Numb> findAll();
 
-    Numbers create(Numbers numbers);
+    Numb create(Numb numbers);
 
-    Numbers update(Numbers numbers);
-
-    Numbers findById(long id);
+    Numb findById(long id);
 
     void deleteById(long id);
 
