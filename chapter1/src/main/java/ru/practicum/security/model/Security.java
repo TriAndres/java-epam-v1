@@ -1,4 +1,4 @@
-package ru.practicum.model;
+package ru.practicum.security.model;
 
 import java.time.LocalDateTime;
 

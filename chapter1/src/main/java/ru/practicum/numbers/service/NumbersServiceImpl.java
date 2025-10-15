@@ -1,9 +1,9 @@
-package ru.practicum.service;
+package ru.practicum.numbers.service;
 
-import ru.practicum.model.Numb;
-import ru.practicum.repository.NumberRepositoryImpl;
+import ru.practicum.numbers.model.Numbers;
+import ru.practicum.numbers.repository.NumberRepositoryImpl;
 
-import static ru.practicum.controller.Controller.scanner;
+import static ru.practicum.console.Console.getInteger;
 
 public class NumbersServiceImpl implements NumbersService {
     private final NumberRepositoryImpl numberRepository;
@@ -16,8 +16,8 @@ public class NumbersServiceImpl implements NumbersService {
     public void findAll() {
         int size = 10;
         int count = 0;
-        //if (!numberRepository.findAll().isEmpty()) {
-            for (Numb numbers : numberRepository.findAll()) {
+        if (!numberRepository.findAll().isEmpty()) {
+            for (Numbers numbers : numberRepository.findAll()) {
                 System.out.print(numbers.toString() + "\t");
                 ++count;
                 if (count == size) {
@@ -25,34 +25,29 @@ public class NumbersServiceImpl implements NumbersService {
                     count = 0;
                 }
             }
-            System.out.println("Вывод списка.\n");
-//        } else {
-//            System.out.println("Список пуст.");
-//        }
+            System.out.println("\nВывод списка.\n");
+        } else {
+            System.out.println("Список пуст.");
+        }
     }
 
     @Override
     public void create() {
         System.out.println("Введите цифру:");
-        int num = scanner().getInteger();
-        System.out.println(num);
-        System.out.println(getNextId());
-        numberRepository.create(new Numb(getNextId(), num));
-        System.out.println("Ввели:\n" +
-                numberRepository
-                        .findById(num));
-
+        int num = getInteger();
+        System.out.println("Ввели:\n" + numberRepository
+                .create(new Numbers(getNextId(), num)));
     }
 
     @Override
     public void update() {
         System.out.println("Введите id цыры:");
-        int num1 = scanner().getInteger();
+        int num1 = getInteger();
 
         if (numberRepository.findAll().contains(numberRepository.findById(num1))) {
             System.out.println("Введите цифру:");
-            int num2 = scanner().getInteger();
-            Numb oldNum = numberRepository.findById(num1);
+            int num2 = getInteger();
+            Numbers oldNum = numberRepository.findById(num1);
             oldNum.setNum(num2);
             numberRepository.create(oldNum);
             System.out.println("Обновили цифру.");
@@ -66,7 +61,7 @@ public class NumbersServiceImpl implements NumbersService {
     @Override
     public void deleteById() {
         System.out.println("Введите id цыры:");
-        int num1 = scanner().getInteger();
+        int num1 = getInteger();
         if (!numberRepository.findAll().contains(numberRepository.findById(num1))) {
             System.out.println("В списке id нет");
         } else {
@@ -85,7 +80,7 @@ public class NumbersServiceImpl implements NumbersService {
         long currentMaxId = numberRepository
                 .findAll()
                 .stream()
-                .mapToLong(Numb::getId)
+                .mapToLong(Numbers::getId)
                 .max()
                 .orElse(0);
         return ++currentMaxId;

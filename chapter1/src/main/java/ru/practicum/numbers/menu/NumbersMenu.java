@@ -1,7 +1,7 @@
-package ru.practicum.menu;
+package ru.practicum.numbers.menu;
 
-import static ru.practicum.controller.Controller.numbersServiceDefaults;
-import static ru.practicum.controller.Controller.scanner;
+import static ru.practicum.console.Console.getString;
+import static ru.practicum.numbers.controller.NumbersController.numbersService;
 
 public class NumbersMenu extends Menu {
     @Override
@@ -15,26 +15,26 @@ public class NumbersMenu extends Menu {
                 5 - удалить всё.
                 0 - выход из меню.
                 """);
-        return scanner().getString();
+        return getString();
     }
 
     @Override
     public void select(String line) {
         switch (line) {
             case "1":
-                numbersServiceDefaults().findAll();
+                numbersService().findAll();
                 break;
             case "2":
-                numbersServiceDefaults().create();
+                numbersService().create();
                 break;
             case "3":
-                numbersServiceDefaults().update();
+                numbersService().update();
                 break;
             case "4":
-                numbersServiceDefaults().deleteById();
+                numbersService().deleteById();
                 break;
             case "5":
-                numbersServiceDefaults().deleteAll();
+                numbersService().deleteAll();
                 break;
             case "0":
                 System.out.println("Выход из меню NumbersMenu.");

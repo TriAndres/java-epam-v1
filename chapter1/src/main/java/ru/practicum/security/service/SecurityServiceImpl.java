@@ -1,11 +1,11 @@
-package ru.practicum.service;
+package ru.practicum.security.service;
 
-import ru.practicum.model.Security;
-import ru.practicum.repository.SecurityRepositoryImpl;
+import ru.practicum.security.model.Security;
+import ru.practicum.security.repository.SecurityRepositoryImpl;
 
 import java.time.LocalDateTime;
 
-import static ru.practicum.controller.Controller.scanner;
+import static ru.practicum.console.Console.getString;
 
 public class SecurityServiceImpl {
     private final SecurityRepositoryImpl securityRepository;
@@ -19,13 +19,13 @@ public class SecurityServiceImpl {
         String line = menu();
         if (line.equals("1")) {
             System.out.println("Введите ваше имя:");
-            String firstName = scanner().getString();
+            String firstName = getString();
             System.out.println("Введите вашу фамилию:");
-            String secondName = scanner().getString();
+            String secondName = getString();
             System.out.println("Введите логин:");
-            String login = scanner().getString();
+            String login = getString();
             System.out.println("Введите пароль:");
-            String password = scanner().getString();
+            String password = getString();
             if (!securityRepository.getSecurityKeyAll().contains(login)) {
                 security = securityRepository.create(new Security(
                         getNextId(),
@@ -39,9 +39,9 @@ public class SecurityServiceImpl {
             }
         } else if (line.equals("2")) {
             System.out.println("Введите логин:");
-            String login = scanner().getString();
+            String login = getString();
             System.out.println("Введите пароль:");
-            String password = scanner().getString();
+            String password = getString();
             if (securityRepository.getSecurityKeyAll().contains(login)) {
                 for (Security securitys : securityRepository.getSecurityValueAll()) {
                     if (securitys.getPassword().equals(password)) {
@@ -62,7 +62,7 @@ public class SecurityServiceImpl {
                 2 - вход.
                 0 - Выйти из программы.
                 """);
-        return scanner().getString();
+        return getString();
     }
 
     private long getNextId() {
