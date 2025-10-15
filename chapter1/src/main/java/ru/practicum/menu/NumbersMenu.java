@@ -1,5 +1,6 @@
 package ru.practicum.menu;
 
+import static ru.practicum.controller.Controller.numbersServiceDefaults;
 import static ru.practicum.controller.Controller.scanner;
 
 public class NumbersMenu extends Menu {
@@ -7,10 +8,11 @@ public class NumbersMenu extends Menu {
     public String menu() {
         System.out.println("""
                 Выбирите действие:
-                1 - добавить.
-                2 - обновить.
-                3 - удалить по id.
-                4 - удалить всё.
+                1 - вывод списка.
+                2 - добавить.
+                3 - обновить.
+                4 - удалить по id.
+                5 - удалить всё.
                 0 - выход из меню.
                 """);
         return scanner().getString();
@@ -20,16 +22,19 @@ public class NumbersMenu extends Menu {
     public void select(String line) {
         switch (line) {
             case "1":
-                System.out.println("В разработке.");
+                numbersServiceDefaults().findAll();
                 break;
             case "2":
-                System.out.println("В разработке.");
+                numbersServiceDefaults().create();
                 break;
             case "3":
-                System.out.println("В разработке.");
+                numbersServiceDefaults().update();
                 break;
             case "4":
-                System.out.println("В разработке.");
+                numbersServiceDefaults().deleteById();
+                break;
+            case "5":
+                numbersServiceDefaults().deleteAll();
                 break;
             case "0":
                 System.out.println("Выход из меню NumbersMenu.");

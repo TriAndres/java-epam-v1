@@ -1,33 +1,39 @@
 package ru.practicum.repository;
 
 
-import ru.practicum.model.Numbers;
+import ru.practicum.model.Numb;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class NumberRepositoryImpl implements NumberRepository {
-    private final Map<Long, Numbers> numbersMap = new HashMap<>();
 
+public class NumberRepositoryImpl implements NumberRepository {
+    private final Map<Long, Numb> numbersMap = new HashMap<>();
+
+    public static void main(String[] args) {
+        NumberRepositoryImpl n = new NumberRepositoryImpl();
+        n.create(new Numb(1L, 44));
+        for (Numb numb : n.findAll()) {
+            System.out.println(numb.toString());
+        }
+
+    }
     @Override
-    public List<Numbers> findAll() {
+    public List<Numb> findAll() {
         return new ArrayList<>(numbersMap.values());
     }
 
     @Override
-    public Numbers create(Numbers numbers) {
-        return numbersMap.put(numbers.getId(), numbers);
+    public Numb create(Numb numbers) {
+        System.out.println(numbers);
+        numbersMap.put(numbers.getId(), numbers);
+        return numbers;
     }
 
     @Override
-    public Numbers update(Numbers numbers) {
-        return numbersMap.put(numbers.getId(), numbers);
-    }
-
-    @Override
-    public Numbers findById(long id) {
+    public Numb findById(long id) {
         return numbersMap.get(id);
     }
 
