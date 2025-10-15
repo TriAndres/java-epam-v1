@@ -20,7 +20,6 @@
         <module>reading-a-book</module>
         <module>chapter1</module>
         <module>coderun</module>
-        <module>html</module>
         <module>leetcode</module>
     </modules>
 
