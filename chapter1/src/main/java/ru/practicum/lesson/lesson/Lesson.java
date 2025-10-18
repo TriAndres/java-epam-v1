@@ -1,5 +1,7 @@
 package ru.practicum.lesson.lesson;
 
 public abstract class Lesson {
-    abstract void game();
+    public Lesson() {
+    }
+    protected abstract void game();
 }
