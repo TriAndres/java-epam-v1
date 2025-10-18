@@ -12,14 +12,6 @@ import java.util.Map;
 public class NumberRepositoryImpl implements NumberRepository {
     private final Map<Long, Numbers> numbersMap = new HashMap<>();
 
-//    public static void main(String[] args) {
-//        NumberRepositoryImpl n = new NumberRepositoryImpl();
-//        n.create(new Numbers(1L, 44));
-//        for (Numbers numb : n.findAll()) {
-//            System.out.println(numb.toString());
-//        }
-//
-//    }
     @Override
     public List<Numbers> findAll() {
         return new ArrayList<>(numbersMap.values());

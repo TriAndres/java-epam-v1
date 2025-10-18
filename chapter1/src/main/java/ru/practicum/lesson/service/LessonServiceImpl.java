@@ -1,8 +1,18 @@
 package ru.practicum.lesson.service;
 
 import ru.practicum.lesson.lesson.lessonA.*;
+import ru.practicum.numbers.repository.NumberRepositoryImpl;
+import ru.practicum.numbers.service.NumbersServiceImpl;
+
+import static ru.practicum.numbers.controller.NumbersController.numberRepository;
+import static ru.practicum.numbers.controller.NumbersController.numbersService;
 
 public class LessonServiceImpl implements LessonService {
+    private NumberRepositoryImpl numberRepository;
+
+    public LessonServiceImpl() {
+        numberRepository = numberRepository();
+    }
 
     @Override
     public void lessonA1() {
@@ -18,7 +28,7 @@ public class LessonServiceImpl implements LessonService {
 
     @Override
     public void lessonA3() {
-        new LessonA3().game();
+        new LessonA3(numberRepository).game();
         System.out.println("Выход из задачи lessonA3()\n");
     }
 

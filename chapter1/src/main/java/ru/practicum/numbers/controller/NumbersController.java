@@ -4,10 +4,13 @@ import ru.practicum.numbers.repository.NumberRepositoryImpl;
 import ru.practicum.numbers.service.NumbersServiceImpl;
 
 public class NumbersController {
-    private static final NumberRepositoryImpl numberRepository = new NumberRepositoryImpl();
+
+    public static NumberRepositoryImpl numberRepository() {
+        return new NumberRepositoryImpl();
+    }
 
     public static NumbersServiceImpl numbersService() {
-        return new NumbersServiceImpl(numberRepository);
+        return new NumbersServiceImpl(numberRepository());
     }
 
 }

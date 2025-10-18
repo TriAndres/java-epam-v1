@@ -12,7 +12,6 @@ import static ru.practicum.security.controller.SecurityController.securityServic
 public class Main {
 
     public static void main(String[] args) {
-
         SecurityServiceImpl securityService = securityService();
         while (true) {
             Security security = securityService.registration();
