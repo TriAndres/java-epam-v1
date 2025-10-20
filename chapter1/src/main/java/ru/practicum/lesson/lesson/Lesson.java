@@ -2,7 +2,6 @@ package ru.practicum.lesson.lesson;
 
 import ru.practicum.numbers.model.Numbers;
 import ru.practicum.numbers.repository.NumberRepositoryImpl;
-import ru.practicum.numbers.service.NumbersServiceImpl;
 
 import java.util.Random;
 

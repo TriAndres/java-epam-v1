@@ -3,15 +3,19 @@ package ru.practicum.lesson.service;
 import ru.practicum.lesson.lesson.lessonA.*;
 import ru.practicum.numbers.repository.NumberRepositoryImpl;
 import ru.practicum.numbers.service.NumbersServiceImpl;
+import ru.practicum.security.repository.SecurityRepositoryImpl;
 
 import static ru.practicum.numbers.controller.NumbersController.numberRepository;
 import static ru.practicum.numbers.controller.NumbersController.numbersService;
+import static ru.practicum.security.controller.SecurityController.securityRepository;
 
 public class LessonServiceImpl implements LessonService {
-    private NumberRepositoryImpl numberRepository;
+    private final NumberRepositoryImpl numberRepository;
+    private final SecurityRepositoryImpl securityRepository;
 
     public LessonServiceImpl() {
         numberRepository = numberRepository();
+        securityRepository = securityRepository();
     }
 
     @Override
